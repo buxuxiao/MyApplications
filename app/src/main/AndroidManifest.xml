@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapplication">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme_Small">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".WebViewTestActivity" />
+        <activity android:name=".VoiceRecordActivity" />
+        <activity android:name=".NFCActivity">
+
+            <!-- 定义NDEF类型的NFC -->
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <!-- 以下是常规的识别NFC芯片的配置 -->
+                <!-- <data android:mimeType="text/plain"/> -->
+
+
+                <!-- 以下是用来识别写入了网址的NFC芯片的配置，这两项是Android 4.X原生系统自带浏览器的配置 -->
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+            </intent-filter>
+
+            <!-- 定义TECH类型的NFC -->
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
+
+            <!-- TECH类型的NFC的扩展定义，位于xml/nfc_tech_filter.xml中 -->
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_tech_filter" />
+
+            <!-- 定义tag类型的NFC -->
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".aspect.AspectTestActivity" />
+        <activity android:name=".list.ListActivity" />
+        <activity android:name=".toolbar.ToolBarActivity" />
+        <activity android:name=".list_control.ListControlActivity" />
+        <activity android:name=".font_control.FontTestActivity" />
+        <activity android:name=".list_control2.ListControl2Activity" />
+        <activity android:name=".scroll.ScrollTestActivity" />
+        <activity android:name=".scroll_slide.ScrollSlideActivity" />
+        <activity android:name=".scroll_slide2.SlideListViewActivity"></activity>
+    </application>
+
+</manifest>

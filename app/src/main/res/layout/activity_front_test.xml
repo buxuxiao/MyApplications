@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.myapplication.font_control.FontTestActivity">
+
+    <TextView
+        android:id="@+id/text1"
+        style="@style/title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="测试字体大小测试字体大小"
+        android:textColor="#333" />
+
+    <TextView
+        android:id="@+id/text2"
+        style="@style/subtitle_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text1"
+        android:layout_margin="10dp"
+        android:text="测试字体大小测试字体大小"
+        android:textColor="#333" />
+
+    <TextView
+        android:id="@+id/text3"
+        style="@style/article_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text2"
+        android:layout_margin="10dp"
+        android:text="测试字体大小测试字体大小"
+        android:textColor="#333" />
+
+    <com.example.myapplication.font_control.FontSizeView
+        android:id="@+id/fontSizeView"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/space_line2"
+        android:layout_marginRight="@dimen/space_line2"
+        android:background="@color/white"
+        app:circleRadius="11dp"
+        app:lineColor="@color/round_corner_progress_bar_progress_default"
+        app:standerSize="16" />
+</RelativeLayout>
