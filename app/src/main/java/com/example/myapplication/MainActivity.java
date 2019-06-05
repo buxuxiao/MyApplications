@@ -14,6 +14,8 @@ import android.widget.ListView;
 import android.widget.Toolbar;
 
 import com.example.myapplication.aspect.AspectTestActivity;
+import com.example.myapplication.cardview.CardSlipeActivity;
+import com.example.myapplication.fingerprint.FingerPrintTestActivity;
 import com.example.myapplication.font_control.FontTestActivity;
 import com.example.myapplication.list.ListActivity;
 import com.example.myapplication.list_control.ListControlActivity;
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
             ScrollTestActivity.class,
             ScrollSlideActivity.class,
             SlideListViewActivity.class,
+            FingerPrintTestActivity.class,
+            CardSlipeActivity.class,
     };
 
     @Override

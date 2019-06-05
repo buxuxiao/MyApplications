@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <uses-feature
         android:name="android.hardware.nfc"
@@ -71,7 +72,12 @@
         <activity android:name=".list_control2.ListControl2Activity" />
         <activity android:name=".scroll.ScrollTestActivity" />
         <activity android:name=".scroll_slide.ScrollSlideActivity" />
-        <activity android:name=".scroll_slide2.SlideListViewActivity"></activity>
+        <activity android:name=".scroll_slide2.SlideListViewActivity" />
+        <activity android:name="net.luculent.mobile.HomeActivity" />
+        <activity android:name=".fingerprint.FingerPrintTestActivity" />
+        <activity android:name=".cardview.CardSlipeActivity">
+
+        </activity>
     </application>
 
 </manifest>

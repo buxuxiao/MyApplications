@@ -25,6 +25,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.aspectj:aspectjrt:1.8.9'
     compile 'com.android.support:design:26+'
+    compile 'com.android.support:cardview-v7:26+'
 }
 
 // 贴上面那段没用的代码是为了说明：下面的任务代码与dependencies同级
