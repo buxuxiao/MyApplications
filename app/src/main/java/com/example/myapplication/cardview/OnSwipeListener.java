@@ -22,14 +22,8 @@ public interface OnSwipeListener<T> {
      * 卡片完全滑出时回调
      *
      * @param viewHolder 该滑出卡片的viewHolder
-     * @param t          该滑出卡片的数据
-     * @param direction  卡片滑出的方向，CardConfig.SWIPED_LEFT 为左边滑出；CardConfig.SWIPED_RIGHT 为右边滑出
+     * @param direction  卡片滑出的方向
      */
-    void onSwiped(RecyclerView.ViewHolder viewHolder, T t, int direction);
-
-    /**
-     * 所有的卡片全部滑出时回调
-     */
-    void onSwipedClear();
+    void onSwiped(RecyclerView.ViewHolder viewHolder, int direction);
 
 }

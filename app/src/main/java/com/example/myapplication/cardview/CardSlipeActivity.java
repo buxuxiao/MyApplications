@@ -2,11 +2,13 @@ package com.example.myapplication.cardview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 
 import com.example.myapplication.R;
+import com.example.myapplication.cardview.helper.ItemTouchHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ public class CardSlipeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private CardAdapter adapter;
     private List<String> list = new ArrayList<>();
+    ItemTouchHelper itemTouchHelper = null;
 
 
     @Override
@@ -29,25 +32,28 @@ public class CardSlipeActivity extends AppCompatActivity {
 
     private void initView() {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        adapter = new CardAdapter(list);
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new CardItemTouchHelperCallback(list, adapter, new OnSwipeListener() {
+        itemTouchHelper = new ItemTouchHelper(new CardItemTouchHelperCallback(new OnSwipeListener() {
             @Override
             public void onSwiping(RecyclerView.ViewHolder viewHolder, float ratio, int direction) {
 
             }
 
             @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, Object o, int direction) {
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                if (direction == ItemTouchHelper.LEFT) {
+                    Log.d("abc", "左滑");
+                    return;
+                }
 
-            }
-
-            @Override
-            public void onSwipedClear() {
-
+                int pos = viewHolder.getLayoutPosition();
+                list.remove(pos);
+                adapter.notifyDataSetChanged();
             }
         }));
-        recyclerView.setLayoutManager(new CardLayoutManager(recyclerView, itemTouchHelper));
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        adapter = new CardAdapter(recyclerView, itemTouchHelper, list);
+        recyclerView.setLayoutManager(new CardLayoutManager());
         recyclerView.setAdapter(adapter);
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }

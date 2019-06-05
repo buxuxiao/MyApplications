@@ -1,23 +1,12 @@
 package com.example.myapplication.cardview;
 
-import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 public class CardLayoutManager extends RecyclerView.LayoutManager {
     public final int SHOW_ITEM = 3;
     public final float SCALE = 0.05f;
-
-    private RecyclerView mRecyclerView;
-    private ItemTouchHelper mItemTouchHelper;
-
-    public CardLayoutManager(RecyclerView recyclerView, ItemTouchHelper touchHelper) {
-        this.mRecyclerView = recyclerView;
-        this.mItemTouchHelper = touchHelper;
-    }
 
     @Override
     public RecyclerView.LayoutParams generateDefaultLayoutParams() {
@@ -49,24 +38,8 @@ public class CardLayoutManager extends RecyclerView.LayoutManager {
                 view.setScaleX(1 - position * SCALE);
                 view.setScaleY(1 - position * SCALE);
                 view.setTranslationY(-position * view.getMeasuredHeight() / 35);
-            } else {
-                view.setOnTouchListener(mOnTouchListener);
             }
         }
 
     }
-
-    private View.OnTouchListener mOnTouchListener = new View.OnTouchListener() {
-
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            RecyclerView.ViewHolder childViewHolder = mRecyclerView.getChildViewHolder(v);
-            // 把触摸事件交给 mItemTouchHelper，让其处理卡片滑动事件
-            if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
-                mItemTouchHelper.startSwipe(childViewHolder);
-            }
-            return false;
-        }
-    };
-
 }
