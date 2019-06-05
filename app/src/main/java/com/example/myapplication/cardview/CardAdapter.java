@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.example.myapplication.R;
 
 import java.util.List;
-//test
+//test2
 public class CardAdapter<T> extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     private List<T> list = null;
