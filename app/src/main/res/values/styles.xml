@@ -45,4 +45,13 @@
         <item name="android:textSize">?@attr/fontsize_3</item>
     </style>
 
+    <style name="style_cmd_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:background">#4888ff</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>

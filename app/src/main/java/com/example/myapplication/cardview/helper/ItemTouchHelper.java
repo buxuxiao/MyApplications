@@ -1134,7 +1134,6 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration
 
         // Calculate the distance moved
         mDx = x - mInitialTouchX;
-        mDx=0;
         mDy = y - mInitialTouchY;
         if ((directionFlags & LEFT) == 0) {
             mDx = Math.max(0, mDx);
@@ -2028,7 +2027,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration
         public void onChildDraw(Canvas c, RecyclerView recyclerView,
                 ViewHolder viewHolder,
                 float dX, float dY, int actionState, boolean isCurrentlyActive) {
-            sUICallback.onDraw(c, recyclerView, viewHolder.itemView, dX, dY, actionState,
+            sUICallback.onDraw(c, recyclerView, viewHolder.itemView, 0, dY, actionState,
                     isCurrentlyActive);
         }
 

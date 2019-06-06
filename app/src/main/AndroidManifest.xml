@@ -21,14 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme_Small">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <category android:name="android.intent.category.HOME" />
-                <category android:name="android.intent.category.DEFAULT" />
 
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".WebViewTestActivity" />
         <activity android:name=".VoiceRecordActivity" />
@@ -76,7 +69,14 @@
         <activity android:name="net.luculent.mobile.HomeActivity" />
         <activity android:name=".fingerprint.FingerPrintTestActivity" />
         <activity android:name=".cardview.CardSlipeActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
 
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

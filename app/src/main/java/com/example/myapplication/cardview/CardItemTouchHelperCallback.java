@@ -8,7 +8,7 @@ public class CardItemTouchHelperCallback<T> extends ItemTouchHelper.Callback {
 
     private OnSwipeListener<T> mListener;
 
-    public CardItemTouchHelperCallback( OnSwipeListener<T> listener) {
+    public CardItemTouchHelperCallback(OnSwipeListener<T> listener) {
         this.mListener = listener;
     }
 
@@ -18,7 +18,7 @@ public class CardItemTouchHelperCallback<T> extends ItemTouchHelper.Callback {
         int swipeFlags = 0;
         RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
         if (layoutManager instanceof CardLayoutManager) {
-            swipeFlags = ItemTouchHelper.DOWN|ItemTouchHelper.LEFT;
+            swipeFlags = ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
         }
         return makeMovementFlags(dragFlags, swipeFlags);
     }
@@ -31,7 +31,7 @@ public class CardItemTouchHelperCallback<T> extends ItemTouchHelper.Callback {
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
         if (mListener != null) {
-            mListener.onSwiped(viewHolder,direction);
+            mListener.onSwiped(viewHolder, direction);
         }
     }
 

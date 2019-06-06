@@ -40,14 +40,17 @@ public class CardSlipeActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                if (direction == ItemTouchHelper.LEFT) {
+                if ((direction & ItemTouchHelper.LEFT) != 0) {
                     Log.d("abc", "左滑");
-                    return;
-                }
 
-                int pos = viewHolder.getLayoutPosition();
-                list.remove(pos);
+                } else if ((direction & ItemTouchHelper.RIGHT) != 0) {
+                    Log.d("abc", "右滑");
+                } else {
+                    int pos = viewHolder.getLayoutPosition();
+                    list.remove(pos);
+                }
                 adapter.notifyDataSetChanged();
+
             }
         }));
 
