@@ -2,18 +2,25 @@ package com.example.myapplication.scroll_slide2;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.myapplication.R;
 
 /**
  * Created by hulifei on 2019/5/10.
  */
 
-public class CustomeSlideView extends LinearLayout implements SlideListener {
+public class CustomeSlideView extends FrameLayout implements SlideListener {
 
     private TextView recentView;
 
@@ -36,23 +43,48 @@ public class CustomeSlideView extends LinearLayout implements SlideListener {
     }
 
     private void initView(Context context) {
-        setOrientation(VERTICAL);
+        LayoutInflater.from(context).inflate(R.layout.layout_custome_slide, this, true);
 
-        recentView = new TextView(context);
-        LayoutParams params2 = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
-        recentView.setLayoutParams(params2);
-        recentView.setText("最近使用");
-        recentView.setGravity(Gravity.CENTER);
-        recentView.setBackgroundColor(0xff6f5553);
-        addView(recentView);
+        recentView = findViewById(R.id.recentView);
+        recentView.getLayoutParams().height = 0;
 
-        TextView textView = new TextView(context);
-        LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 400 * 3);
-        textView.setLayoutParams(params);
-        textView.setText("我的应用");
-        textView.setGravity(Gravity.CENTER);
-        textView.setBackgroundColor(0xffc14089);
-        addView(textView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(context, 4) {
+            @Override
+            public boolean canScrollHorizontally() {
+                return false;
+            }
+
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        });
+        recyclerView.setAdapter(new RecyclerView.Adapter() {
+            @Override
+            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_custome_slide_item, parent, false);
+
+                return new ViewHolder(view);
+            }
+
+            @Override
+            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
+            }
+
+            @Override
+            public int getItemCount() {
+                return 10;
+            }
+
+            class ViewHolder extends RecyclerView.ViewHolder {
+
+                public ViewHolder(View itemView) {
+                    super(itemView);
+                }
+            }
+        });
     }
 
     @Override
@@ -69,9 +101,9 @@ public class CustomeSlideView extends LinearLayout implements SlideListener {
     public boolean updateHeaderHeight(float deltaY) {
         int height = recentView.getLayoutParams().height;
 
-      /*  if (height >= MAX_HEIGHT && deltaY > 0) {
+        if (height >= MAX_HEIGHT && deltaY > 0) {
             return false;
-        }*/
+        }
 
         if (height <= 0 && deltaY < 0) {
             return false;
@@ -94,8 +126,6 @@ public class CustomeSlideView extends LinearLayout implements SlideListener {
         return true;
 
     }
-
-
 
 
 }
