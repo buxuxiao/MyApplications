@@ -10,7 +10,23 @@
         android:layout_height="10dp"
         android:background="#ccffcc" />
 
-    <android.support.v7.widget.RecyclerView
+    <LinearLayout
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#12ff65"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#12df51"/>
+    </LinearLayout>
+
+    <com.example.myapplication.scroll_slide2.WarpLinearLayout
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

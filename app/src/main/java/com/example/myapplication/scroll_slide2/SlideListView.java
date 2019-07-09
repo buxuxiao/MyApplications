@@ -2,7 +2,9 @@ package com.example.myapplication.scroll_slide2;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ListView;
 
 import java.util.List;
@@ -34,6 +36,8 @@ public class SlideListView extends ListView {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+        slideListener.dispatchTouchEvents(MotionEvent.obtain(ev));
+
         if (mLastY == -1) {
             mLastY = ev.getRawY();
         }
@@ -46,9 +50,9 @@ public class SlideListView extends ListView {
                 final float deltaY = ev.getRawY() - mLastY;
                 mLastY = ev.getRawY();
                 if (getFirstVisiblePosition() == 0 && getChildAt(0).getTop() == 0) {
-                    if(slideListener.updateHeaderHeight(deltaY)){
-//                       return true;
-                       ev.setAction(MotionEvent.ACTION_DOWN);
+                    if (slideListener.updateHeaderHeight(deltaY)) {
+//                        return true;
+                        ev.setAction(MotionEvent.ACTION_DOWN);
                     }
                 }
                 break;
