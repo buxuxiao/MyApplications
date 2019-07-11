@@ -9,4 +9,5 @@
     <string name="xlistview_footer_hint_ready">松开载入更多</string>
 
     <string name="chat_common_emptyStr"></string>
+    <string name="title_activity_gaus_test">GausTestActivity</string>
 </resources>

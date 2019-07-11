@@ -17,6 +17,7 @@ import com.example.myapplication.aspect.AspectTestActivity;
 import com.example.myapplication.cardview.CardSlipeActivity;
 import com.example.myapplication.fingerprint.FingerPrintTestActivity;
 import com.example.myapplication.font_control.FontTestActivity;
+import com.example.myapplication.gaus.GausTestActivity;
 import com.example.myapplication.list.ListActivity;
 import com.example.myapplication.list_control.ListControlActivity;
 import com.example.myapplication.list_control2.ListControl2Activity;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             SlideListViewActivity.class,
             FingerPrintTestActivity.class,
             CardSlipeActivity.class,
+            GausTestActivity.class,
     };
 
     @Override

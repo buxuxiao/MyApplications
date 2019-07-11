@@ -75,9 +75,11 @@
         <activity android:name=".scroll_slide2.SlideListViewActivity" />
         <activity android:name="net.luculent.mobile.HomeActivity" />
         <activity android:name=".fingerprint.FingerPrintTestActivity" />
-        <activity android:name=".cardview.CardSlipeActivity">
-
-        </activity>
+        <activity android:name=".cardview.CardSlipeActivity"></activity>
+        <activity
+            android:name=".gaus.GausTestActivity"
+            android:label="@string/title_activity_gaus_test"
+            android:theme="@style/Theme_Small"></activity>
     </application>
 
 </manifest>
