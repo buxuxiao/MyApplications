@@ -13,14 +13,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toolbar;
 
+import com.example.myapplication.AttachWebTest.AttachWebTestActivity;
 import com.example.myapplication.aspect.AspectTestActivity;
 import com.example.myapplication.cardview.CardSlipeActivity;
+import com.example.myapplication.file_chose.FileChooseActivity;
 import com.example.myapplication.fingerprint.FingerPrintTestActivity;
 import com.example.myapplication.font_control.FontTestActivity;
 import com.example.myapplication.gaus.GausTestActivity;
 import com.example.myapplication.list.ListActivity;
 import com.example.myapplication.list_control.ListControlActivity;
 import com.example.myapplication.list_control2.ListControl2Activity;
+import com.example.myapplication.log.LogTestActivity;
+import com.example.myapplication.object_animator.AnimationTestActivity;
+import com.example.myapplication.object_animator.ObjectAnimatorActivity;
+import com.example.myapplication.record_button.RecordButtonActivity;
 import com.example.myapplication.scroll.ScrollTestActivity;
 import com.example.myapplication.scroll_slide.ScrollSlideActivity;
 import com.example.myapplication.scroll_slide2.SlideListViewActivity;
@@ -50,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
             FingerPrintTestActivity.class,
             CardSlipeActivity.class,
             GausTestActivity.class,
+            AttachWebTestActivity.class,
+            FileChooseActivity.class,
+            ObjectAnimatorActivity.class,
+            AnimationTestActivity.class,
+            RecordButtonActivity.class,
+            LogTestActivity.class,
     };
 
     @Override

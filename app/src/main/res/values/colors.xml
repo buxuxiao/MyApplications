@@ -11,4 +11,6 @@
     <color name="black_28">#282828</color>
     <color name="black_65">#656565</color>
     <color name="black_98">#989898</color>
+
+    <color name="lcim_commom_read">#ff0000</color>
 </resources>

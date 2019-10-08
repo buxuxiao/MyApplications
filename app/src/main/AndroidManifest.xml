@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
 
+    <!-- 读取Log权限 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -75,11 +77,17 @@
         <activity android:name=".scroll_slide2.SlideListViewActivity" />
         <activity android:name="net.luculent.mobile.HomeActivity" />
         <activity android:name=".fingerprint.FingerPrintTestActivity" />
-        <activity android:name=".cardview.CardSlipeActivity"></activity>
+        <activity android:name=".cardview.CardSlipeActivity" />
         <activity
             android:name=".gaus.GausTestActivity"
             android:label="@string/title_activity_gaus_test"
-            android:theme="@style/Theme_Small"></activity>
+            android:theme="@style/Theme_Small" />
+        <activity android:name=".AttachWebTest.AttachWebTestActivity" />
+        <activity android:name=".file_chose.FileChooseActivity" />
+        <activity android:name=".object_animator.ObjectAnimatorActivity" />
+        <activity android:name=".object_animator.AnimationTestActivity" />
+        <activity android:name=".record_button.RecordButtonActivity" />
+        <activity android:name=".log.LogTestActivity"></activity>
     </application>
 
 </manifest>
